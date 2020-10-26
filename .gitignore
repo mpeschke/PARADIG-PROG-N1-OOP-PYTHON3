@@ -1,0 +1,23 @@
+# Virtual Environments
+.venv/
+
+# IDEs
+.idea/
+.vscode/
+
+# Caching
+.pytest_cache/
+PARADIG-PROG-N1-OOP-PYTHON3.egg-info/
+PARADIG-PROG-N1-OOP-PYTHON3/__pycache__/
+tests/__pycache__/
+
+# Packaging
+dist/
+
+# Mac OS files
+**/.DS_Store
+
+# Mac OS files
+**/*.pyc
+
+.coverage
