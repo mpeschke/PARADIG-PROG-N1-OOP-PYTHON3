@@ -17,6 +17,10 @@ class ArremessoPeso(Modalidade):
     Classe representando a modalidade de competição Arremesso de Peso.
     """
     def __init__(self, inp):
+        """
+        Construtor
+        @param inp: instância da classe responsável pela entrada de dados.
+        """
         super(ArremessoPeso, self).__init__(
             inp,
             numtentativas=NUMERO_ARREMESSOS,
@@ -24,15 +28,11 @@ class ArremessoPeso(Modalidade):
             mensagem=MENSAGEM_LER_ARREMESSOS
         )
 
-    def lerentrada(self, numadversario):
-        return super(ArremessoPeso, self).lerentrada(
-            numadversario=numadversario
-        )
-
-    def validarentrada(self, entrada):
-        return super(ArremessoPeso, self).validarentrada(entrada=entrada)
-
     def iniciar(self):
+        """
+        Processamento da competição de arremesso de peso.
+        @return:
+        """
         # Primeiro passo, ordena as marcas (resultados) individuais dos
         # adversários.
         super(ArremessoPeso, self).iniciar()

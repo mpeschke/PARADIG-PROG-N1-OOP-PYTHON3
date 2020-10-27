@@ -6,51 +6,35 @@ olimpíadas.
 import unittest
 from tests.utils import MockInput
 from ooppython3.modalidadearremessopeso import ArremessoPeso, \
-    ARREMESSO_NUMERO_ADVERSARIOS, NUMERO_ARREMESSOS
+    ARREMESSO_NUMERO_ADVERSARIOS
 from ooppython3.adversarioarremessopeso import AdversarioArremessoPeso
 
 
 class TestModalidadeArremessoPeso(unittest.TestCase):
     """
-    Classe representando a modalidade de competição Arremesso de Peso das
-    olimpíadas.
+    Suíte de testes da classe representando a modalidade de competição
+    Arremesso de Peso das olimpíadas.
+    Notar o uso da classe MockInput para simular a entrada de dados
+    sem o bloqueio do stadin real.
     """
-    def setUp(self):
-        """
-        Inicializa data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
-    def tearDown(self):
-        """
-        Destrói data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
     def test_ler_entrada(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de entrada correta (usuário digita valores válidos de
+        arremessos).
         :return: None
         """
-        inp = MockInput("1.0,2.0,3.0")
-        ap = ArremessoPeso(inp=inp)
+        ap = ArremessoPeso(inp=MockInput("1.0,2.0,3.0"))
         self.assertEqual(ap.lerentrada(numadversario="1"),
                          '1.0,2.0,3.0',
                          "Esperada string '1.0,2.0,3.0'")
 
     def test_validar_entrada_valida(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de entrada correta (usuário digita valores válidos de
+        arremessos).
         :return: None
         """
-        inp = MockInput("1.0,2.0,3.0")
-        ap = ArremessoPeso(inp=inp)
+        ap = ArremessoPeso(inp=MockInput("1.0,2.0,3.0"))
         ret = ap.validarentrada(
             entrada=ap.lerentrada(numadversario="1")
         )
@@ -60,12 +44,11 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_entrada_arremessos_a_menos(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de entrada incorreta (usuário digita menos valores de
+        arremessos que o esperado).
         :return: None
         """
-        inp = MockInput("1.0,2.0")
-        ap = ArremessoPeso(inp=inp)
+        ap = ArremessoPeso(inp=MockInput("1.0,2.0"))
         ret = ap.validarentrada(
             entrada=ap.lerentrada(numadversario="1")
         )
@@ -75,12 +58,11 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_entrada_arremessos_a_mais(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de entrada incorreta (usuário digita valores de
+        arremessos a mais que o esperado).
         :return: None
         """
-        inp = MockInput("1.0,2.0,3.0,4.0")
-        ap = ArremessoPeso(inp=inp)
+        ap = ArremessoPeso(inp=MockInput("1.0,2.0,3.0,4.0"))
         ret = ap.validarentrada(
             entrada=ap.lerentrada(numadversario="1")
         )
@@ -90,12 +72,11 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_entrada_invalida(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de entrada incorreta (usuário digita valores de
+        arremessos inválidos).
         :return: None
         """
-        inp = MockInput("1.0,invalido,3.0")
-        ap = ArremessoPeso(inp=inp)
+        ap = ArremessoPeso(inp=MockInput("1.0,invalido,3.0"))
         ret = ap.validarentrada(
             entrada=ap.lerentrada(numadversario="1")
         )
@@ -105,12 +86,11 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_numero_adversarios(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de número de adversários incorreto (houve alguma
+        confusão na chamada das funções da modalidade pela classe Menu).
         :return: None
         """
-        inp = MockInput("")
-        ap = ArremessoPeso(inp=inp)
+        ap = ArremessoPeso(inp=MockInput(""))
         self.assertEqual(ap.numeroadversarios(),
                          ARREMESSO_NUMERO_ADVERSARIOS,
                          "Função deveria ter retornado {} adversarios".format(
@@ -119,8 +99,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_empate_simples(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de empate na competição (melhores arremessos iguais).
         :return: None
         """
         ap = ArremessoPeso(inp=MockInput(""))
@@ -137,8 +116,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_desempate_simples_vencedor_1(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de vencedor na competição (adversário #1).
         :return: None
         """
         ap = ArremessoPeso(inp=MockInput(""))
@@ -155,8 +133,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_desempate_simples_vencedor_2(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de vencedor na competição (adversário #2).
         :return: None
         """
         ap = ArremessoPeso(inp=MockInput(""))
@@ -173,8 +150,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_desempate_segunda_melhor_marca_vencedor_1(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de vencedor na competição (adversário #1).
         :return: None
         """
         ap = ArremessoPeso(inp=MockInput(""))
@@ -191,8 +167,8 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
 
     def test_validar_desempate_segunda_melhor_marca_vencedor_2(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de desempate na competição (segundos melhores arremessos
+        dos adversários).
         :return: None
         """
         ap = ArremessoPeso(inp=MockInput(""))

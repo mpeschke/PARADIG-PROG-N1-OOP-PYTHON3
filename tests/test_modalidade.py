@@ -9,28 +9,14 @@ from tests.utils import MockInput
 
 class TestModalidade(unittest.TestCase):
     """
-    Superclasse representando uma modalidade de competição das olimpíadas.
+    Suíte de testes da superclasse representando uma modalidade de competição
+    das olimpíadas.
+    Notar o uso da classe MockInput para simular a entrada de dados
+    sem o bloqueio do stadin real.
     """
-    def setUp(self):
-        """
-        Inicializa data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
-    def tearDown(self):
-        """
-        Destrói data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
     def test_inicializacao_superclasse(self):
         """
         Testa os parâmetros do construtor da classe.
-
         :return: None
         """
         inp = MockInput("1.0,2.0,3.0")

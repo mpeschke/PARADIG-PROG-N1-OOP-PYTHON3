@@ -9,5 +9,3 @@ class AdversarioArremessoPeso(Adversario):
     """
     Classe representando um competidor na modalidade Arremesso de Peso.
     """
-    def __init__(self, nome, resultado):
-        super(AdversarioArremessoPeso, self).__init__(nome, resultado)

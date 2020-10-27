@@ -11,26 +11,9 @@ class TestAdversarioGinasticaArtistica(unittest.TestCase):
     """
     Testes para a classe de um adversário na modalidade Ginástica Artística.
     """
-    def setUp(self):
-        """
-        Inicializa data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
-    def tearDown(self):
-        """
-        Destrói data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
     def test_construtor(self):
         """
         Testa os parâmetros do construtor da classe.
-
         :return: None
         """
         _nome = "meunome"

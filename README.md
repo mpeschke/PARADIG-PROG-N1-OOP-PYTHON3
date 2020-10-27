@@ -1,15 +1,15 @@
 # PARADIG-PROG-N1-OOP-PYTHON3 #
 
-Tutorial em vídeo demonstrando a aplicação do paradigma OOP e detalhando as escolhas e implementações dessa aplicação:  
+Tutorial em vídeo demonstrando a aplicação do paradigma OOP e detalhando as escolhas e implementações dessa aplicação: https://drive.google.com/drive/folders/1ZE8VH6yoOUFDHSy5b-DT3kto_GEmtxVS?usp=sharing  
 
 Atividade de entrega para a aula de Paradigmas de Linguagens de Programação (prof. Bruno Moritani).
 
 Paradigmas: OOP (Object Oriented Programming - Programação Orientada a Objeto)  
 Linguagem: Python 3 (3.8)  
 
-## Local dependencies ##
+## Dependências Locais ##
 
-You must install the following system dependencies:
+As dependências por sistema operacional são essas:  
 
 Mac OS:  
 >*\# source system-macos-dependencies.sh*  
@@ -44,7 +44,7 @@ N/A
 
 ## Verificando a qualidade do código ##
 
->*$ pylint ooppython3/\*.py tests/\*.py*  
+>*$ pylint ooppython3/\*.py*  
 
 ## Executando a aplicação ##
 

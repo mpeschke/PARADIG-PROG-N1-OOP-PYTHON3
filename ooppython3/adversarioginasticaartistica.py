@@ -9,5 +9,3 @@ class AdversarioGinasticaArtistica(Adversario):
     """
     Classe representando um competidor na modalidade Ginástica Artística.
     """
-    def __init__(self, nome, resultado):
-        super(AdversarioGinasticaArtistica, self).__init__(nome, resultado)

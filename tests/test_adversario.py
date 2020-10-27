@@ -8,28 +8,11 @@ from ooppython3.adversario import Adversario
 
 class TestAdversario(unittest.TestCase):
     """
-    Superclasse representando um competidor nas olimpíadas.
+    Suíte de testes para a superclasse de Adversário.
     """
-    def setUp(self):
-        """
-        Inicializa data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
-    def tearDown(self):
-        """
-        Destrói data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
     def test_construtor(self):
         """
         Testa os parâmetros do construtor da classe.
-
         :return: None
         """
         _nome = "meunome"

@@ -8,34 +8,18 @@ from ooppython3.menu import Menu, ID_MODALIDADE_ARREMESSOPESO, \
 from tests.utils import MockInput
 
 
-class TestMenuModalidadeArremessoPeso(unittest.TestCase):
+class TestMenu(unittest.TestCase):
     """
-    Testa a classe Menu.
+    Suíte de testes para a classe Menu.
+    Notar o uso da classe MockInput para simular a entrada de dados
+    sem o bloqueio do stadin real.
     """
-    def setUp(self):
-        """
-        Inicializa data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
-    def tearDown(self):
-        """
-        Destrói data members da classe de suíte de testes.
-
-        :return: None
-        """
-        pass
-
     def test_lerentrada_modalidade_arremesso_peso(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário do caminho feliz (usuário digita modalidade existente).
         :return: None
         """
-        _input = MockInput(ID_MODALIDADE_ARREMESSOPESO)
-        menu = Menu(_input)
+        menu = Menu(MockInput(ID_MODALIDADE_ARREMESSOPESO))
         menu.lerentrada()
         self.assertEqual(menu.validarmodalidade(),
                          True,
@@ -43,12 +27,10 @@ class TestMenuModalidadeArremessoPeso(unittest.TestCase):
 
     def test_lerentrada_modalidade_ginastica_artistica(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário do caminho feliz (usuário digita modalidade existente).
         :return: None
         """
-        _input = MockInput(ID_MODALIDADE_GINASTICAARTISTICA)
-        menu = Menu(_input)
+        menu = Menu(MockInput(ID_MODALIDADE_GINASTICAARTISTICA))
         menu.lerentrada()
         self.assertEqual(menu.validarmodalidade(),
                          True,
@@ -56,12 +38,11 @@ class TestMenuModalidadeArremessoPeso(unittest.TestCase):
 
     def test_lerentrada_modalidade_inexistente_vazia(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de erro de entrada (usuário digita modalidade
+        inexistente).
         :return: None
         """
-        _input = MockInput("")
-        menu = Menu(_input)
+        menu = Menu(MockInput(""))
         menu.lerentrada()
         self.assertEqual(menu.validarmodalidade(),
                          False,
@@ -69,12 +50,10 @@ class TestMenuModalidadeArremessoPeso(unittest.TestCase):
 
     def test_lerentrada_modalidade_inexistente_espacos(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de erro de entrada (usuário digita espaços).
         :return: None
         """
-        _input = MockInput("1 ")
-        menu = Menu(_input)
+        menu = Menu(MockInput("1 "))
         menu.lerentrada()
         self.assertEqual(menu.validarmodalidade(),
                          False,
@@ -82,12 +61,10 @@ class TestMenuModalidadeArremessoPeso(unittest.TestCase):
 
     def test_lerentrada_modalidade_inexistente_texto_a_mais(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário de erro de entrada (usuário digita texto a mais).
         :return: None
         """
-        _input = MockInput("123deOliveira4")
-        menu = Menu(_input)
+        menu = Menu(MockInput("123deOliveira4"))
         menu.lerentrada()
         self.assertEqual(menu.validarmodalidade(),
                          False,
@@ -95,8 +72,8 @@ class TestMenuModalidadeArremessoPeso(unittest.TestCase):
 
     def test_menu_instancia_dinamica_arremesso_peso(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário do caminho feliz (valida o retorno de uma instância
+        da classe ArremessoPeso).
         :return: None
         """
         _input = MockInput(ID_MODALIDADE_ARREMESSOPESO)
@@ -111,8 +88,8 @@ class TestMenuModalidadeArremessoPeso(unittest.TestCase):
 
     def test_menu_instancia_dinamica_ginastica_artistica(self):
         """
-        Testa os parâmetros do construtor da classe.
-
+        Testa cenário do caminho feliz (valida o retorno de uma instância
+        da classe GinasticaArtistica).
         :return: None
         """
         _input = MockInput(ID_MODALIDADE_GINASTICAARTISTICA)

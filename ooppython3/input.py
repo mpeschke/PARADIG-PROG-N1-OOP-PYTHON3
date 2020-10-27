@@ -10,4 +10,9 @@ class Input:
     Fundamental para habilitar mock para unit tests.
     """
     def input(self, mensagem):
+        """
+        Coleta a entrada de dados do usuário, via stdin (bloqueia).
+        @param mensagem: Mensagem de orientação para a entrada de dados.
+        @return: dados entrados pelo usuário.
+        """
         return input(mensagem)
