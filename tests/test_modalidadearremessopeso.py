@@ -51,9 +51,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         inp = MockInput("1.0,2.0,3.0")
         ap = ArremessoPeso(inp=inp)
         ret = ap.validarentrada(
-            entrada=ap.lerentrada(numadversario="1"),
-            numadversarios=ARREMESSO_NUMERO_ADVERSARIOS,
-            numtentativas=NUMERO_ARREMESSOS,
+            entrada=ap.lerentrada(numadversario="1")
         )
         self.assertEqual(ret,
                          True,
@@ -68,9 +66,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         inp = MockInput("1.0,2.0")
         ap = ArremessoPeso(inp=inp)
         ret = ap.validarentrada(
-            entrada=ap.lerentrada(numadversario="1"),
-            numadversarios=ARREMESSO_NUMERO_ADVERSARIOS,
-            numtentativas=NUMERO_ARREMESSOS,
+            entrada=ap.lerentrada(numadversario="1")
         )
         self.assertEqual(ret,
                          False,
@@ -85,9 +81,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         inp = MockInput("1.0,2.0,3.0,4.0")
         ap = ArremessoPeso(inp=inp)
         ret = ap.validarentrada(
-            entrada=ap.lerentrada(numadversario="1"),
-            numadversarios=ARREMESSO_NUMERO_ADVERSARIOS,
-            numtentativas=NUMERO_ARREMESSOS,
+            entrada=ap.lerentrada(numadversario="1")
         )
         self.assertEqual(ret,
                          False,
@@ -102,9 +96,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         inp = MockInput("1.0,invalido,3.0")
         ap = ArremessoPeso(inp=inp)
         ret = ap.validarentrada(
-            entrada=ap.lerentrada(numadversario="1"),
-            numadversarios=ARREMESSO_NUMERO_ADVERSARIOS,
-            numtentativas=NUMERO_ARREMESSOS,
+            entrada=ap.lerentrada(numadversario="1")
         )
         self.assertEqual(ret,
                          False,

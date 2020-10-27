@@ -50,7 +50,9 @@ class TestModalidadeGinasticaArtistica(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0,3.0,4.0,5.0")
         ap = GinasticaArtistica(inp=inp)
-        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
+        ret = ap.validarentrada(
+            entrada=ap.lerentrada(numadversario="1")
+        )
         self.assertEqual(ret,
                          True,
                          "Função deveria ter retornado True")
@@ -63,7 +65,9 @@ class TestModalidadeGinasticaArtistica(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0")
         ap = GinasticaArtistica(inp=inp)
-        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
+        ret = ap.validarentrada(
+            entrada=ap.lerentrada(numadversario="1")
+        )
         self.assertEqual(ret,
                          False,
                          "Função deveria ter retornado False")
@@ -76,7 +80,9 @@ class TestModalidadeGinasticaArtistica(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0,3.0,4.0,5.0,6.0")
         ap = GinasticaArtistica(inp=inp)
-        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
+        ret = ap.validarentrada(
+            entrada=ap.lerentrada(numadversario="1")
+        )
         self.assertEqual(ret,
                          False,
                          "Função deveria ter retornado False")
@@ -89,7 +95,9 @@ class TestModalidadeGinasticaArtistica(unittest.TestCase):
         """
         inp = MockInput("1.0,invalido,3.0,4.0,5.0")
         ap = GinasticaArtistica(inp=inp)
-        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
+        ret = ap.validarentrada(
+            entrada=ap.lerentrada(numadversario="1")
+        )
         self.assertEqual(ret,
                          False,
                          "Função deveria ter retornado False")
