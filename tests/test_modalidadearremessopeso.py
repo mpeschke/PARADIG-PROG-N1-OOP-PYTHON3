@@ -7,6 +7,7 @@ import unittest
 from tests.utils import MockInput
 from ooppython3.modalidadearremessopeso import ArremessoPeso, \
     ARREMESSO_NUMERO_ADVERSARIOS, NUMERO_ARREMESSOS
+from ooppython3.adversarioarremessopeso import AdversarioArremessoPeso
 
 
 class TestModalidadeArremessoPeso(unittest.TestCase):
@@ -115,3 +116,93 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
                          "Função deveria ter retornado {} adversarios".format(
                              ARREMESSO_NUMERO_ADVERSARIOS)
                          )
+
+    def test_validar_empate_simples(self):
+        """
+        Testa os parâmetros do construtor da classe.
+
+        :return: None
+        """
+        ap = ArremessoPeso(inp=MockInput(""))
+        ap._adversarios = [
+            AdversarioArremessoPeso(
+                nome="Adversario 1", resultado=[1.0, 2.0, 3.0]),
+            AdversarioArremessoPeso(
+                nome="Adversario 2", resultado=[1.0, 2.0, 3.0])
+        ]
+        ap.iniciar()
+        self.assertEqual(ap.vencedor(),
+                         "Empate",
+                         "Deveria haver um empate.")
+
+    def test_validar_desempate_simples_vencedor_1(self):
+        """
+        Testa os parâmetros do construtor da classe.
+
+        :return: None
+        """
+        ap = ArremessoPeso(inp=MockInput(""))
+        ap._adversarios = [
+            AdversarioArremessoPeso(
+                nome="Adversario 1", resultado=[1.0, 2.0, 4.0]),
+            AdversarioArremessoPeso(
+                nome="Adversario 2", resultado=[1.0, 2.0, 3.0])
+        ]
+        ap.iniciar()
+        self.assertEqual(ap.vencedor(),
+                         "Adversario 1",
+                         "Adversario 1 deveria ser o vencedor.")
+
+    def test_validar_desempate_simples_vencedor_2(self):
+        """
+        Testa os parâmetros do construtor da classe.
+
+        :return: None
+        """
+        ap = ArremessoPeso(inp=MockInput(""))
+        ap._adversarios = [
+            AdversarioArremessoPeso(
+                nome="Adversario 1", resultado=[1.0, 2.0, 3.0]),
+            AdversarioArremessoPeso(
+                nome="Adversario 2", resultado=[1.0, 2.0, 4.0])
+        ]
+        ap.iniciar()
+        self.assertEqual(ap.vencedor(),
+                         "Adversario 2",
+                         "Adversario 2 deveria ser o vencedor.")
+
+    def test_validar_desempate_segunda_melhor_marca_vencedor_1(self):
+        """
+        Testa os parâmetros do construtor da classe.
+
+        :return: None
+        """
+        ap = ArremessoPeso(inp=MockInput(""))
+        ap._adversarios = [
+            AdversarioArremessoPeso(
+                nome="Adversario 1", resultado=[1.0, 2.0, 3.0]),
+            AdversarioArremessoPeso(
+                nome="Adversario 2", resultado=[1.0, 1.0, 3.0])
+        ]
+        ap.iniciar()
+        self.assertEqual(ap.vencedor(),
+                         "Adversario 1",
+                         "Adversario 1 deveria ser o vencedor.")
+
+    def test_validar_desempate_segunda_melhor_marca_vencedor_2(self):
+        """
+        Testa os parâmetros do construtor da classe.
+
+        :return: None
+        """
+        ap = ArremessoPeso(inp=MockInput(""))
+        ap._adversarios = [
+            AdversarioArremessoPeso(
+                nome="Adversario 1", resultado=[1.0, 1.0, 3.0]),
+            AdversarioArremessoPeso(
+                nome="Adversario 2", resultado=[1.0, 2.0, 3.0])
+        ]
+        ap.iniciar()
+        self.assertEqual(ap.vencedor(),
+                         "Adversario 2",
+                         "Adversario 2 deveria ser o vencedor.")
