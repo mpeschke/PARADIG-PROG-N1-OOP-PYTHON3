@@ -33,11 +33,31 @@ class ArremessoPeso(Modalidade):
         return super(ArremessoPeso, self).validarentrada(entrada=entrada)
 
     def iniciar(self):
-        # Primeiro passo, ordenar os resultados dos adversários.
-        super(ArremessoPeso).iniciar()
+        # Primeiro passo, ordena as marcas (resultados) individuais dos
+        # adversários.
+        super(ArremessoPeso, self).iniciar()
 
-        # Segundo passo, vence de primeira o que tiver a melhor marca.
-
-
-    def vencedor(self):
-        pass
+        # Procuramos por vencedores nos melhores ou nos segundos melhores
+        # arremessos.
+        for i in range(2):
+            melhoresarremessos = {
+                self.adversarios()[0].nome():
+                    self.adversarios()[0].resultado()[i],
+                self.adversarios()[1].nome():
+                    self.adversarios()[1].resultado()[i]
+            }
+            # Segundo passo, ordena os dois melhores resultados do adversários
+            # e verifica se há um vencedor.
+            melhoresarremessos = {
+                k: v for k,
+                v in sorted(
+                    melhoresarremessos.items(),
+                    key=lambda item: item[1],
+                    reverse=True
+                )
+            }
+            # Terceiro passo, aproveitando a característica de 'set' ter apenas
+            # elementos únicos, identificamos ou não um empate.
+            if len(set(melhoresarremessos.values())) > 1:
+                self._vencedor = list(melhoresarremessos.keys())[0]
+                return

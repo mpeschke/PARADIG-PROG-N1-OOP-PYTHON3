@@ -22,13 +22,13 @@ def main():
 
     for numadversario in range(modalidade.numeroadversarios()):
         while not modalidade.validarentrada(
-                modalidade.lerentrada(numadversario)
+                modalidade.lerentrada(numadversario+1)
         ):
             continue
 
     modalidade.iniciar()
 
-    print("Vencedor: ".format(modalidade.vencedor()))
+    print("Vencedor: {}".format(modalidade.vencedor()))
 
 
 if __name__ == '__main__':

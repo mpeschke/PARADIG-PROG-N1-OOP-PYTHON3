@@ -15,6 +15,7 @@ class Modalidade:
     _numtentativas = None
     _numadversarios = None
     _mensagem = None
+    _vencedor = "Empate"
 
     def __init__(self, inp, numtentativas, numadversarios, mensagem):
         self._input = inp
@@ -55,7 +56,7 @@ class Modalidade:
 
     def iniciar(self):
         for adversario in self.adversarios():
-            adversario.resultado().sort()
+            adversario.resultado().sort(reverse=True)
 
     def numeroadversarios(self):
         return self._numadversarios
@@ -67,4 +68,4 @@ class Modalidade:
         return self._adversarios
 
     def vencedor(self):
-        pass
+        return self._vencedor

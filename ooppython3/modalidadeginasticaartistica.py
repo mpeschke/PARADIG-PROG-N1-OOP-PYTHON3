@@ -33,6 +33,3 @@ class GinasticaArtistica(Modalidade):
 
     def iniciar(self):
         pass
-
-    def vencedor(self):
-        pass

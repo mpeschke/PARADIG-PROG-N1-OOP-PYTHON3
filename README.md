@@ -5,7 +5,7 @@ Tutorial em vídeo demonstrando a aplicação do paradigma OOP e detalhando as e
 Atividade de entrega para a aula de Paradigmas de Linguagens de Programação (prof. Bruno Moritani).
 
 Paradigmas: OOP (Object Oriented Programming - Programação Orientada a Objeto)  
-Linguagem: Python 3 (3.6)  
+Linguagem: Python 3 (3.8)  
 
 ## Local dependencies ##
 
@@ -45,3 +45,7 @@ N/A
 ## Verificando a qualidade do código ##
 
 >*$ pylint ooppython3/\*.py tests/\*.py*  
+
+## Executando a aplicação ##
+
+>*$ python -m ooppython3.app*  
