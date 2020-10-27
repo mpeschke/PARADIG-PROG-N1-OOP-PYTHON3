@@ -4,9 +4,9 @@ Módulo: Fornece um menu para as modalidades de competição disponíveis, além
 de ler e analisar as entradas.
 """
 from ooppython3.utils import DynamicClassLoaderModalidade
-
-ID_MODALIDADE_ARREMESSOPESO = "1"
-ID_MODALIDADE_GINASTICAARTISTICA = "2"
+from ooppython3.modalidadearremessopeso import ID_MODALIDADE_ARREMESSOPESO
+from ooppython3.modalidadeginasticaartistica import \
+    ID_MODALIDADE_GINASTICAARTISTICA
 
 ENTRADA_MODALIDADE_MENSAGEM = "Digite o número da modalidade (1-Arremesso de" \
                               " Peso, 2-Ginástica Artística): "

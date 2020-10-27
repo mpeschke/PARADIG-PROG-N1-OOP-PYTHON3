@@ -27,7 +27,7 @@ class TestModalidade(unittest.TestCase):
         """
         pass
 
-    def test_ler_entrada(self):
+    def test_ler_adversarios(self):
         """
         Testa os parâmetros do construtor da classe.
 
@@ -35,7 +35,6 @@ class TestModalidade(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0,3.0")
         ap = Modalidade(inp=inp)
-        ap.lerentrada()
-        self.assertEqual(ap._entrada,
-                         None,
-                         "Esperada variável não inicializada.")
+        self.assertEqual(ap.adversarios(),
+                         [],
+                         "Esperada lista vazia [].")

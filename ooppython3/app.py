@@ -20,10 +20,13 @@ def main():
 
     modalidade = menu.modalidade(inp)
 
-    while not modalidade.validarentrada():
-        modalidade.lerentrada()
+    for numadversario in modalidade.numeroadversarios():
+        while not modalidade.validarentrada():
+            modalidade.lerentrada()
 
     modalidade.iniciar()
+
+    print(modalidade.vencedor())
 
 
 if __name__ == '__main__':

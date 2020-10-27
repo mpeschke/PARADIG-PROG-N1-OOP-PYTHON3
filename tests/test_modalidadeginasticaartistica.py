@@ -6,10 +6,10 @@ olimpíadas.
 import unittest
 from tests.utils import MockInput
 from ooppython3.modalidadeginasticaartistica import GinasticaArtistica, \
-    NUMERO_NOTAS
+    GINASTICA_NUMERO_ADVERSARIOS
 
 
-class TestModalidadeArremessoPeso(unittest.TestCase):
+class TestModalidadeGinasticaArtistica(unittest.TestCase):
     """
     Classe representando a modalidade de competição Ginástica Artística das
     olimpíadas.
@@ -38,8 +38,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0,3.0,4.0,5.0")
         ap = GinasticaArtistica(inp=inp)
-        ap.lerentrada()
-        self.assertEqual(ap._entrada,
+        self.assertEqual(ap.lerentrada(numadversario="1"),
                          '1.0,2.0,3.0,4.0,5.0',
                          "Esperada string '1.0,2.0,3.0,4.0,5.0'")
 
@@ -51,19 +50,10 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0,3.0,4.0,5.0")
         ap = GinasticaArtistica(inp=inp)
-        ap.lerentrada()
-        ret = ap.validarentrada()
+        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
         self.assertEqual(ret,
                          True,
                          "Função deveria ter retornado True")
-        self.assertEqual(ap.notas,
-                         [1.0, 2.0, 3.0, 4.0, 5.0],
-                         "Esperada lista de floats [1.0, 2.0, 3.0, 4.0, 5.0]")
-        self.assertEqual(len(ap.notas),
-                         NUMERO_NOTAS,
-                         "Número de arremessos deveria ser {}".format(
-                             NUMERO_NOTAS)
-                         )
 
     def test_validar_entrada_arremessos_a_menos(self):
         """
@@ -73,8 +63,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0")
         ap = GinasticaArtistica(inp=inp)
-        ap.lerentrada()
-        ret = ap.validarentrada()
+        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
         self.assertEqual(ret,
                          False,
                          "Função deveria ter retornado False")
@@ -87,8 +76,7 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         """
         inp = MockInput("1.0,2.0,3.0,4.0,5.0,6.0")
         ap = GinasticaArtistica(inp=inp)
-        ap.lerentrada()
-        ret = ap.validarentrada()
+        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
         self.assertEqual(ret,
                          False,
                          "Função deveria ter retornado False")
@@ -101,8 +89,21 @@ class TestModalidadeArremessoPeso(unittest.TestCase):
         """
         inp = MockInput("1.0,invalido,3.0,4.0,5.0")
         ap = GinasticaArtistica(inp=inp)
-        ap.lerentrada()
-        ret = ap.validarentrada()
+        ret = ap.validarentrada(entrada=ap.lerentrada(numadversario="1"))
         self.assertEqual(ret,
                          False,
                          "Função deveria ter retornado False")
+
+    def test_numero_adversarios(self):
+        """
+        Testa os parâmetros do construtor da classe.
+
+        :return: None
+        """
+        inp = MockInput("")
+        ap = GinasticaArtistica(inp=inp)
+        self.assertEqual(ap.numeroadversarios(),
+                         GINASTICA_NUMERO_ADVERSARIOS,
+                         "Função deveria ter retornado {} adversarios".format(
+                             GINASTICA_NUMERO_ADVERSARIOS)
+                         )
