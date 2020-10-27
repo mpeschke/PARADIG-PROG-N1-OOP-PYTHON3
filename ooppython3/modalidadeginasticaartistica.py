@@ -19,21 +19,17 @@ class GinasticaArtistica(Modalidade):
         super(GinasticaArtistica, self).__init__(
             inp,
             numtentativas=NUMERO_NOTAS,
-            numadversarios=GINASTICA_NUMERO_ADVERSARIOS
+            numadversarios=GINASTICA_NUMERO_ADVERSARIOS,
+            mensagem=MENSAGEM_LER_NOTAS
         )
 
     def lerentrada(self, numadversario):
-        return self._input.input(
-            MENSAGEM_LER_NOTAS.format(
-                NUMERO_NOTAS, numadversario
-            )
+        return super(GinasticaArtistica, self).lerentrada(
+            numadversario=numadversario
         )
 
     def validarentrada(self, entrada):
         return super(GinasticaArtistica, self).validarentrada(entrada=entrada)
-
-    def iniciarmodalidade(self):
-        pass
 
     def iniciar(self):
         pass

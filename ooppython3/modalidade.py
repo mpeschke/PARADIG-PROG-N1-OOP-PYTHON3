@@ -14,14 +14,20 @@ class Modalidade:
     _input = None
     _numtentativas = None
     _numadversarios = None
+    _mensagem = None
 
-    def __init__(self, inp, numtentativas, numadversarios):
+    def __init__(self, inp, numtentativas, numadversarios, mensagem):
         self._input = inp
         self._numtentativas = numtentativas
         self._numadversarios = numadversarios
+        self._mensagem = mensagem
 
     def lerentrada(self, numadversario):
-        pass
+        return self._input.input(
+                self._mensagem.format(
+                    self._numtentativas, numadversario
+                )
+        )
 
     def validarentrada(self, entrada):
         if len(self._adversarios) is self._numadversarios:
@@ -48,7 +54,8 @@ class Modalidade:
             return False
 
     def iniciar(self):
-        pass
+        for adversario in self.adversarios():
+            adversario.resultado().sort()
 
     def numeroadversarios(self):
         return self._numadversarios

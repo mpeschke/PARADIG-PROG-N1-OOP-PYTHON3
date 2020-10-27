@@ -37,7 +37,8 @@ class TestModalidade(unittest.TestCase):
         ap = Modalidade(
             inp=inp,
             numtentativas=1000,
-            numadversarios=500
+            numadversarios=500,
+            mensagem="Can't touch this"
         )
         self.assertEqual(ap.adversarios(),
                          [],
@@ -48,3 +49,6 @@ class TestModalidade(unittest.TestCase):
         self.assertEqual(ap.numeroadversarios(),
                          500,
                          "Esperados 500 adversários.")
+        self.assertEqual(ap._mensagem,
+                         "Can't touch this",
+                         "Esperada mensagem 'Can't touch this'.")

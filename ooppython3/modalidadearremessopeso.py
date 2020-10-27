@@ -20,24 +20,24 @@ class ArremessoPeso(Modalidade):
         super(ArremessoPeso, self).__init__(
             inp,
             numtentativas=NUMERO_ARREMESSOS,
-            numadversarios=ARREMESSO_NUMERO_ADVERSARIOS
+            numadversarios=ARREMESSO_NUMERO_ADVERSARIOS,
+            mensagem=MENSAGEM_LER_ARREMESSOS
         )
 
     def lerentrada(self, numadversario):
-        return self._input.input(
-                MENSAGEM_LER_ARREMESSOS.format(
-                    NUMERO_ARREMESSOS, numadversario
-                )
+        return super(ArremessoPeso, self).lerentrada(
+            numadversario=numadversario
         )
 
     def validarentrada(self, entrada):
         return super(ArremessoPeso, self).validarentrada(entrada=entrada)
 
-    def iniciarmodalidade(self):
-        pass
-
     def iniciar(self):
-        pass
+        # Primeiro passo, ordenar os resultados dos adversários.
+        super(ArremessoPeso).iniciar()
+
+        # Segundo passo, vence de primeira o que tiver a melhor marca.
+
 
     def vencedor(self):
         pass
